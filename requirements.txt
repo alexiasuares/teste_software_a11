@@ -1,0 +1,7 @@
+locust
+psutil
+pandas
+matplotlib
+numpy
+fastapi
+uvicorn

@@ -1,0 +1,9 @@
+=== TESTE DE DESEMPENHO (AULA 11) ===
+Data: 2025-10-30T15:10:08.739700 UTC
+
+Total de requisições: 11735
+Throughput médio: 24.62 req/s
+Tempo médio: 2.10 ms
+P95: 4.16 ms
+
+Meta: P95 < 500 ms → APROVADO
