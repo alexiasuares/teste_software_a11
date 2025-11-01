@@ -1,7 +1,7 @@
 # Teste de desempenho
 from locust import HttpUser, task, between, events
 import csv, os
-from datetime import datetime
+from datetime import datetime, timezone
 
 ARQUIVO = "requests.csv"
 
@@ -12,7 +12,7 @@ if not os.path.exists(ARQUIVO):
 
 @events.request.add_listener
 def registrar_requisicao(request_type, name, response_time, response_length, response, context, exception, **kwargs):
-    ts = datetime.utcnow().isoformat()
+    ts = datetime.now(timezone.utc).isoformat()
     status = response.status_code if response else 0
     with open(ARQUIVO, "a", newline="") as f:
         writer = csv.writer(f)

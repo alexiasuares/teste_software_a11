@@ -1,0 +1,9 @@
+=== TESTE DE ESTRESSE ===
+Data: 2025-11-01T00:11:21.955786+00:00 UTC
+
+Usuários: 500 | Throughput: 11.86 req/s | P95: 39.19 ms
+Usuários: 1000 | Throughput: 13.99 req/s | P95: 47.63 ms
+Usuários: 5000 | Throughput: 16.06 req/s | P95: 53.90 ms
+Usuários: 15000 | Throughput: 18.07 req/s | P95: 58.90 ms
+
+Meta: Ponto de quebra > 15000 usuários → APROVADO

@@ -1,9 +1,64 @@
 === TESTE DE DESEMPENHO (AULA 11) ===
-Data: 2025-10-30T15:10:08.739700 UTC
+Data: 2025-11-01T00:13:43.752217+00:00 UTC
 
-Total de requisições: 11735
-Throughput médio: 24.62 req/s
-Tempo médio: 2.10 ms
-P95: 4.16 ms
+Total de requisições: 42296
+Throughput médio: 19.79 req/s
+Tempo médio: 14.95 ms
+P95: 55.36 ms
 
 Meta: P95 < 500 ms → APROVADO
+
+
+=== SEÇÕES ADICIONAIS ===
+
+
+=== TESTE DE CARGA ===
+=== TESTE DE CARGA ===
+Data: 2025-11-01T00:09:04.914276+00:00 UTC
+
+Total de requisições: 18122
+Usuários simultâneos: 200
+Duração: 60s
+Throughput médio: 9.72 req/s
+Tempo médio: 11.51 ms
+P95: 32.47 ms
+
+Meta: Throughput > 2000 req/s → REPROVADO
+
+
+=== TESTE DE ESTRESSE ===
+Data: 2025-11-01T00:11:21.955786+00:00 UTC
+
+Usuários: 500 | Throughput: 11.86 req/s | P95: 39.19 ms
+Usuários: 1000 | Throughput: 13.99 req/s | P95: 47.63 ms
+Usuários: 5000 | Throughput: 16.06 req/s | P95: 53.90 ms
+Usuários: 15000 | Throughput: 18.07 req/s | P95: 58.90 ms
+
+Meta: Ponto de quebra > 15000 usuários → APROVADO
+
+
+
+=== TESTE DE ESCALABILIDADE ===
+Data: 2025-11-01T00:13:39.693200+00:00 UTC
+
+Usuários: 50 | Throughput: 18.10 req/s
+Usuários: 100 | Throughput: 18.42 req/s
+Usuários: 200 | Throughput: 19.08 req/s
+Usuários: 400 | Throughput: 19.79 req/s
+
+Eficiência horizontal final: 13.67%
+Meta: Eficiência > 80% → REPROVADO
+
+
+
+=== TESTES DE SEGURANÇA ===
+SQLi payload '1 OR 1=1' → 422: {"detail":[{"type":"int_parsing","loc":["path","id"],"msg":"Input should be a va
+SQLi payload ''; DROP TABLE produtos; --' → 422: {"detail":[{"type":"int_parsing","loc":["path","id"],"msg":"Input should be a va
+SQLi payload 'abc' OR 'x'='x' → 422: {"detail":[{"type":"int_parsing","loc":["path","id"],"msg":"Input should be a va
+Checkout com campo faltando → 422: {"detail":[{"type":"missing","loc":["body","quantidade"],"msg":"Field required","input":{"produto_id":1}}]}
+Produto inexistente → 200: {"erro":"Produto não encontrado"}
+Endpoint inexistente → 404
+
+✅ Testes de segurança concluídos com sucesso.
+
+Rate limiting test: 120 OK / 0 bloqueadas

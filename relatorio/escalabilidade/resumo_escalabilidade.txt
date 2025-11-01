@@ -1,0 +1,10 @@
+=== TESTE DE ESCALABILIDADE ===
+Data: 2025-11-01T00:13:39.693200+00:00 UTC
+
+Usuários: 50 | Throughput: 18.10 req/s
+Usuários: 100 | Throughput: 18.42 req/s
+Usuários: 200 | Throughput: 19.08 req/s
+Usuários: 400 | Throughput: 19.79 req/s
+
+Eficiência horizontal final: 13.67%
+Meta: Eficiência > 80% → REPROVADO

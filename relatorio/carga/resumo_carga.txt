@@ -1,0 +1,11 @@
+=== TESTE DE CARGA ===
+Data: 2025-11-01T00:09:04.914276+00:00 UTC
+
+Total de requisições: 18122
+Usuários simultâneos: 200
+Duração: 60s
+Throughput médio: 9.72 req/s
+Tempo médio: 11.51 ms
+P95: 32.47 ms
+
+Meta: Throughput > 2000 req/s → REPROVADO

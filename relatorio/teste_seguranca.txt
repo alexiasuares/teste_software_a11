@@ -1,0 +1,13 @@
+=== TESTE DE SEGURANÇA ===
+Data: 2025-11-01T00:13:44.859428+00:00 UTC
+
+SQLi payload '1 OR 1=1' → Status 422
+SQLi payload ''; DROP TABLE produtos; --' → Status 422
+SQLi payload 'abc' OR 'x'='x' → Status 422
+Checkout com campo faltando → Status 422
+Endpoint inexistente → Status 404
+
+Requisições bem-sucedidas: 120
+Requisições bloqueadas: 0
+
+Meta: Bloquear após 100 req/min/IP → REPROVADO
